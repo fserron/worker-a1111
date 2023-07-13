@@ -71,8 +71,8 @@ RUN --mount=type=cache,target=/root/.cache/pip \
     pip install -r requirements_versions.txt
 
 # NOTE: This expects the models to be stored in /runpod-volume/models folder on Network Volume
-RUN rm -rf /stable-diffusion-webui/models/Stable-diffusion && \
-    cd /stable-diffusion-webui/models && \
+RUN cd /stable-diffusion-webui/models && \
+    rm -rf Stable-diffusion && \
     ln -s /runpod-volume/models/ Stable-diffusion
 
 ADD src .
